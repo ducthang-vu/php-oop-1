@@ -16,15 +16,23 @@ class Movie {
     public function getTitle() {
         return $this->title;
     }
+
+    public function printProp() {
+        foreach(get_object_vars($this) as $key => $value) {
+            echo "$key: $value <br>";
+        }
+    }
 }
 
 
 $movie1 = new Movie('Star wars', 'science-fiction', 'George Lucas', 775);
 $movie2 = new Movie('Dune', 'science-fiction', 'David Lynch', 37.9);
 
-var_dump(get_object_vars($movie1));
-echo $movie1->getTitle();
+$movie1->printProp();
 echo '<br>';
-echo $movie1->director;
+echo $movie1->getTitle() . '<br>';
+echo $movie1->director . '<br>';
 
-var_dump($movie2);
+echo '<br>';
+
+echo $movie2->printProp();
